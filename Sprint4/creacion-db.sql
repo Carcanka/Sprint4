@@ -23,3 +23,13 @@ SELECT nombre, titulo FROM prioridad, tarea WHERE
 --3) Si se ha configurado una acción de eliminación en cascada, la eliminación de la prioridad también eliminará todas las tareas asociadas a esa prioridad.
 --@block
 UPDATE tarea SET completado = CASE WHEN completado = true THEN false ELSE true END WHERE id = (SELECT max (id) FROM tarea);
+
+ALTER TABLE Prioridad 
+ADD CONSTRAINT id_Prioridad PRIMARY KEY (id);
+ALTER TABLE Tarea
+ADD CONSTRAINT llave_TareaPrim FOREIGN KEY (prioridad_id) REFERENCES Prioridad(id);
+
+ALTER TABLE Usuario 
+ADD CONSTRAINT llave_usuariio PRIMARY KEY (id);
+ALTER TABLE Usuario
+ADD CONSTRAINT llave_UsuarioPrim FOREIGN KEY (usuario_id) REFERENCES Usuario(id);
