@@ -22,7 +22,7 @@ SELECT nombre, titulo FROM prioridad, tarea WHERE
 -- 2)La posibilidad de eliminar una prioridad en uso está determinada por las restricciones de integridad referencial aplicadas en la base de datos. Estas restricciones son reglas que garantizan que las relaciones entre las tablas sean coherentes y consistentes. Si se ha configurado una restricción de clave foránea con una acción de eliminación específica, entonces la eliminación de una prioridad podría tener efectos distintos en las tareas que la referencian. 
 --3) Si se ha configurado una acción de eliminación en cascada, la eliminación de la prioridad también eliminará todas las tareas asociadas a esa prioridad.
 --@block
-UPDATE tarea SET completado = CASE WHEN completado = true THEN false ELSE true END WHERE id = (SELECT max (id) FROM tarea);
+UPDATE tarea SET completado = CASE WHEN completado = true THEN false ELSE true END WHERE usuario.id = (SELECT max (usuario.id) FROM tarea);
 
 ALTER TABLE Prioridad 
 ADD CONSTRAINT id_Prioridad PRIMARY KEY (id);
