@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Sprint4",
+            "database": "Sprint4",
+            "username": "postgres"
+        }
+    ]
+}

@@ -24,12 +24,12 @@ SELECT nombre, titulo FROM prioridad, tarea WHERE
 --@block
 UPDATE tarea SET completado = CASE WHEN completado = true THEN false ELSE true END WHERE usuario.id = (SELECT max (usuario.id) FROM tarea);
 
-ALTER TABLE Prioridad 
-ADD CONSTRAINT id_Prioridad PRIMARY KEY (id);
-ALTER TABLE Tarea
-ADD CONSTRAINT llave_TareaPrim FOREIGN KEY (prioridad_id) REFERENCES Prioridad(id);
+ALTER TABLE prioridad 
+ADD CONSTRAINT id_prioridad PRIMARY KEY (id);
+ALTER TABLE tarea
+ADD CONSTRAINT llave_tareaPrim FOREIGN KEY (prioridad_id) REFERENCES prioridad(id);
 
-ALTER TABLE Usuario 
-ADD CONSTRAINT llave_usuariio PRIMARY KEY (id);
-ALTER TABLE Usuario
-ADD CONSTRAINT llave_UsuarioPrim FOREIGN KEY (usuario_id) REFERENCES Usuario(id);
+ALTER TABLE usuario 
+ADD CONSTRAINT usuario_id PRIMARY KEY (id);
+ALTER TABLE tarea
+ADD CONSTRAINT llave_usuarioPrim FOREIGN KEY (usuario_id) REFERENCES usuario(id);
